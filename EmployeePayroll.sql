@@ -143,5 +143,11 @@ create table emp_Dep(
      drop column  taxable_pay,
      drop column  tax,
      drop column  net_pay;
-
+#UC12
+select Employee.id, Employee.name, PhoneNo.Phone_No, employee.Address, emp_Dep.depName, employee.gender,
+     emp_Payroll.basic_pay,emp_Payroll.Deductions, emp_Payroll.taxable_pay, emp_Payroll.tax, emp_Payroll.net_pay, Employee.start
+     from Employee
+     inner join PhoneNo on Employee.id =PhoneNo.id
+     inner join emp_Dep on Employee.id = emp_Dep.id
+     inner join emp_Payroll on Employee.id = emp_Payroll.id;
 
