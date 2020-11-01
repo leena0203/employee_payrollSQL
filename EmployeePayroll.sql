@@ -109,3 +109,39 @@ UPDATE employee_payroll SET     name = 'Terisa'WHERE    id=1;
 UPDATE employee_payroll SET     Department = 'Sales'WHERE    name='Terisa';
 insert into employee_payroll(name,Department, gender, basic_pay, Deductions, taxable_pay, tax, net_pay, start)
 values ('Terisa','Marketing','F',3000000,1000000,2000000,500000,1500000,'2018-12-11');
+#UC11
+alter table employee_payroll rename to Employee;
+create table emp_Dep(
+     DepId int not null auto_increment,
+     id int unsigned not null,
+     depName varchar(150) not null,
+     primary key (DepId),
+     foreign key (id) references Employee(id)
+     );
+ create table emp_Payroll(
+     PayrollId int not null auto_increment,
+     id int unsigned not null,
+     basic_pay double not null,
+     Deductions double not null,
+     taxable_pay double not null,
+     tax double not null,
+     net_pay double not null,
+     primary key (PayrollId),
+     foreign key (id) references Employee(id)
+     );
+
+ create table PhoneNo(
+     PhoneId int not null auto_increment,
+     id int unsigned not null ,
+     Phone_No varchar(150) not null,
+     primary key (PhoneId),
+     foreign key (id) references Employee(id)
+     );
+ alter table Employee
+     drop column basic_pay,
+     drop column Deductions,
+     drop column  taxable_pay,
+     drop column  tax,
+     drop column  net_pay;
+
+
