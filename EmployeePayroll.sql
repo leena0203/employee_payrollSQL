@@ -104,3 +104,8 @@ alter table employee_payroll add Deductions Double not null after basic_pay;
 alter table employee_payroll add taxable_pay Double not null after Deductions;
 alter table employee_payroll add tax Double not null after taxable_pay;
 alter table employee_payroll add net_pay Double not null after tax;
+#UC10
+UPDATE employee_payroll SET     name = 'Terisa'WHERE    id=1;
+UPDATE employee_payroll SET     Department = 'Sales'WHERE    name='Terisa';
+insert into employee_payroll(name,Department, gender, basic_pay, Deductions, taxable_pay, tax, net_pay, start)
+values ('Terisa','Marketing','F',3000000,1000000,2000000,500000,1500000,'2018-12-11');
