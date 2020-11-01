@@ -98,3 +98,9 @@ ALTER TABLE employee_payroll ADD Phone_No varchar(150) AFTER name;
 ALTER TABLE employee_payroll ADD Address varchar(150) AFTER Phone_No;
 ALTER TABLE employee_payroll ADD Department varchar(150) NOT NULL AFTER Address;
 ALTER TABLE employee_payroll ALTER Address SET Default 'ABC';
+#UC9
+alter table employee_payroll rename column salary to basic_pay;
+alter table employee_payroll add Deductions Double not null after basic_pay;
+alter table employee_payroll add taxable_pay Double not null after Deductions;
+alter table employee_payroll add tax Double not null after taxable_pay;
+alter table employee_payroll add net_pay Double not null after tax;
